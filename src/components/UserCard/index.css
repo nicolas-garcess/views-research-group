@@ -1,0 +1,17 @@
+.user {
+    background-color: rgb(0, 45, 71);
+    border: solid 5px rgb(190, 147, 7);
+    border-radius: 5px;
+    width: 270px;
+    height: 150px;
+    margin: 5px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    color: white;
+}
