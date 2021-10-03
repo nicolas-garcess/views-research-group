@@ -21,6 +21,9 @@ module.exports = {
     'react/prop-types': 'off',
     'comma-dangle': 'off',
     'import/prefer-default-export': 'off',
-    'import/no-unresolved': 'off'
+    'import/no-unresolved': 'off',
+    'linebreak-style': 0,
+    'no-undef': 'off',
+    'no-unused-expressions': 'off',
   },
 };
