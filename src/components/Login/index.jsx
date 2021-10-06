@@ -12,8 +12,6 @@ function Login() {
             <input type="text" id="user" placeholder="nombre de usuario" />
             <label htmlFor="password">CONTRASEÑA</label>
             <input type="password" id="password" placeholder="contraseña" />
-            <p>¿NO SE ENCUENTRA REGISTRADO?</p>
-            <a href="https://www.google.com/">REGISTRARSE</a>
           </div>
           <div className="button">
             <button type="button">INICIAR SESIÓN</button>

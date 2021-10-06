@@ -1,4 +1,4 @@
-.login {
+.register {
   background: #151618;
   height: 100vh;
   padding-top: 10%;
@@ -6,7 +6,7 @@
 .container {
   background: rgba(255, 255, 255, 0.02);
   width: 60%;
-  height: 60%;
+  height: 80%;
   margin: auto;
   display: flex;
 }
@@ -28,6 +28,18 @@ img {
 label {
   color: #8e8e8e;
   font-size: 12px;
+}
+select{
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 90%;
+  border: none;
+  border-bottom: 2px solid #8e8e8e;
+  background-color: rgba(255, 255, 255, 0);
+  color: rgba(225, 176, 43, 1);
+  font-family: "Roboto Mono", monospace;
+  font-size: 16px; 
 }
 input {
   margin-top: 10px;
