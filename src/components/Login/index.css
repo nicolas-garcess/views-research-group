@@ -1,0 +1,81 @@
+.login {
+  background: #151618;
+  height: 100vh;
+  padding-top: 10%;
+}
+.container {
+  background: rgba(255, 255, 255, 0.02);
+  width: 60%;
+  height: 60%;
+  margin: auto;
+  display: flex;
+}
+img {
+  height: 100%;
+  display: block;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.form-upper {
+  text-align: left;
+  margin-top: 40px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+label {
+  color: #8e8e8e;
+  font-size: 12px;
+}
+input {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 90%;
+  border: none;
+  border-bottom: 2px solid #8e8e8e;
+  background-color: rgba(255, 255, 255, 0);
+  color: rgba(225, 176, 43, 1);
+  font-family: "Roboto Mono", monospace;
+  font-size: 16px;
+}
+::placeholder {
+  color: rgba(142, 142, 142, 0.4);
+  font-size: 16px;
+}
+p {
+  color: #8e8e8e;
+  font-size: 12px;
+  text-align: center;
+}
+a {
+  color: rgba(225, 176, 43, 1);
+  font-size: 12px;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  display: block;
+}
+.button {
+  background: rgba(255, 255, 255, 0.02);
+  height: 60px;
+  padding: 10px;
+  margin-bottom: 0;
+}
+button {
+  background: rgba(255, 255, 255, 0);
+  color: #8e8e8e;
+  font-size: 12px;
+  font-family: "Roboto Mono", monospace;
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width: 1080px) {
+  img {
+    display: none;
+  }
+}
