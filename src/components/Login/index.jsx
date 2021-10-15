@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { getUser } from '../../helpers/user';
 import { login } from '../../store/users';
 import './index.css';
 
@@ -9,10 +11,10 @@ const initialState = {
 };
 
 const Login = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const { loginResponse } = useSelector((state) => (state.users));
   const [loginData, setLoginData] = useState(initialState);
-  console.log(loginResponse);
 
   const handleOnblur = (e) => {
     const tag = e.target;
@@ -27,13 +29,14 @@ const Login = () => {
         ...loginData,
         [e.target.name]: e.target.value,
       });
-    } else {
-      console.log('malo');
     }
   };
 
   const handleOnClick = async () => {
     await dispatch(login(loginData.email, loginData.password));
+
+    const user = getUser();
+    history.push(`/user/${user.id}`);
   };
 
   return (
@@ -42,21 +45,21 @@ const Login = () => {
         <img src="/assets/images/coal.png" alt="coal" />
         <form className="form">
           <div className="form-upper">
-            <label htmlFor="email">EMAIL</label>
+            <label htmlFor="email">correo electrónico</label>
             <input
               type="email"
               id="email"
               name="email"
-              placeholder="ejemplo@ejemplo.com"
+              placeholder="Ingresa tu correo electrónico"
               minLength="6"
               onBlur={(e) => handleOnblur(e)}
             />
-            <label htmlFor="password">CONTRASEÑA</label>
+            <label htmlFor="password">contraseña</label>
             <input
               type="password"
               id="password"
               name="password"
-              placeholder="contraseña"
+              placeholder="Ingresa tu contraseña"
               minLength="6"
               maxLength="20"
               onBlur={(e) => handleOnblur(e)}
@@ -64,7 +67,7 @@ const Login = () => {
           </div>
           {loginResponse?.error ? <p>{loginResponse.message}</p> : null }
           <div className="button">
-            <button type="button" onClick={handleOnClick}>INICIAR SESIÓN</button>
+            <button type="button" onClick={handleOnClick}>iniciar sesión</button>
           </div>
         </form>
       </div>
