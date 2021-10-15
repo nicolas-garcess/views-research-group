@@ -1,3 +1,5 @@
+import { saveUser } from '../../helpers/user';
+
 /** ACTION TYPES */
 
 import { URL_PATH } from '../../api';
@@ -30,6 +32,10 @@ export const login = (email, password) => async (dispatch) => {
       });
 
     const loginResponse = await response.json();
+
+    if (loginResponse.error === null) {
+      saveUser(loginResponse);
+    }
 
     dispatch({
       type: LOGIN_SUCCESS,

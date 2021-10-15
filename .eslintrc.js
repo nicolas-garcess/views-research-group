@@ -22,5 +22,6 @@ module.exports = {
     'no-unused-expressions': 'off',
     'jsx-a11y/label-has-associated-control': 'off',
     'no-console': 'off',
+    'react/jsx-props-no-spreading': 'off',
   },
 };

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { getUser } from '../../helpers/user';
 import { login } from '../../store/users';
 import './index.css';
 
@@ -9,10 +11,10 @@ const initialState = {
 };
 
 const Login = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const { loginResponse } = useSelector((state) => (state.users));
   const [loginData, setLoginData] = useState(initialState);
-  console.log(loginResponse);
 
   const handleOnblur = (e) => {
     const tag = e.target;
@@ -32,6 +34,9 @@ const Login = () => {
 
   const handleOnClick = async () => {
     await dispatch(login(loginData.email, loginData.password));
+
+    const user = getUser();
+    history.push(`/user/${user.id}`);
   };
 
   return (
