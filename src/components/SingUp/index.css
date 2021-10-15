@@ -5,8 +5,8 @@
 }
 .container {
   background: rgba(255, 255, 255, 0.02);
-  width: 60%;
-  height: 80%;
+  width: 80%;
+  height: 100vh;
   margin: auto;
   display: flex;
 }
@@ -14,16 +14,14 @@ img {
   height: 100%;
   display: block;
 }
-.form {
+.form-signup {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding: 4% 10% 0
 }
-.form-upper {
+.form-signup__upper {
   text-align: left;
-  margin-top: 40px;
-  margin-left: 30px;
-  margin-right: 30px;
 }
 label {
   color: #8e8e8e;
