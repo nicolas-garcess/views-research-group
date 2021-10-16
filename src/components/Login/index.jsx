@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { getUser } from '../../helpers/user';
-import { login } from '../../store/users';
+import { login } from '../../store/auth';
 import './index.css';
 
 const initialState = {
@@ -13,7 +13,7 @@ const initialState = {
 const Login = () => {
   const history = useHistory();
   const dispatch = useDispatch();
-  const { loginResponse } = useSelector((state) => (state.users));
+  const { loginResponse } = useSelector((state) => (state.auth));
   const [loginData, setLoginData] = useState(initialState);
 
   const handleOnblur = (e) => {

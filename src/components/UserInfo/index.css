@@ -1,0 +1,25 @@
+.user-info {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  background-color: black;
+}
+
+.user-title {
+  color: rgba(225, 176, 43, 1);
+}
+
+.user-title > span {
+  color: rgb(255, 255, 255);
+}
+
+.user-value {
+  color: rgba(225, 176, 43, 1);
+  font-weight: bold;
+  margin: 50px 0;
+}
+
+.user-value > span {
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+}

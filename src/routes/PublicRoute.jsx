@@ -8,7 +8,7 @@ const PublicRoute = ({ component: Component, ...rest }) => {
   const user = getUser();
   return (
     <Route {...rest}>
-      {user === null ? <Component /> : <Redirect to={`/user/${user.id}`} /> }
+      {user === null ? <Component /> : <Redirect to={`/usuario/${user.id}`} /> }
     </Route>
   );
 };

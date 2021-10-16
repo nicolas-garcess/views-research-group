@@ -1,9 +1,8 @@
 .user {
-    background-color: rgb(0, 45, 71);
-    border: solid 5px rgb(190, 147, 7);
+    background-color: rgb(0, 0, 0);
     border-radius: 5px;
-    width: 270px;
-    height: 150px;
+    width: 290px;
+    height: 200px;
     margin: 5px;
     padding: 5px;
     display: flex;
@@ -12,6 +11,15 @@
     align-items: center;
 }
 
-p {
-    color: white;
+.user:hover {
+  cursor: pointer;
+}
+
+.user__label {
+    color: rgba(225, 176, 43, 1);
+    font-weight: bold;
+}
+
+.user__label > span {
+    color: rgb(255, 255, 255)
 }
