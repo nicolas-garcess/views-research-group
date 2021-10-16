@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { getUser } from '../../helpers/user';
-import { login } from '../../store/users';
+import { login } from '../../store/auth';
 import './index.css';
 
 const initialState = {
@@ -13,7 +13,7 @@ const initialState = {
 const Login = () => {
   const history = useHistory();
   const dispatch = useDispatch();
-  const { loginResponse } = useSelector((state) => (state.users));
+  const { loginResponse } = useSelector((state) => (state.auth));
   const [loginData, setLoginData] = useState(initialState);
 
   const handleOnblur = (e) => {
@@ -36,7 +36,7 @@ const Login = () => {
     await dispatch(login(loginData.email, loginData.password));
 
     const user = getUser();
-    history.push(`/user/${user.id}`);
+    history.push(`/usuario/${user.id}`);
   };
 
   return (
@@ -47,6 +47,7 @@ const Login = () => {
           <div className="form-upper">
             <label htmlFor="email">correo electrónico</label>
             <input
+              className="input-login"
               type="email"
               id="email"
               name="email"
@@ -56,6 +57,7 @@ const Login = () => {
             />
             <label htmlFor="password">contraseña</label>
             <input
+              className="input-login"
               type="password"
               id="password"
               name="password"

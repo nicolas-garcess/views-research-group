@@ -4,8 +4,13 @@ import {
 } from 'react-router-dom';
 // import Home from '../components/Home';
 import Login from '../components/Login';
+import Projects from '../components/Projects';
+import ProjectInfo from '../components/ProjectInfo';
+import Researchers from '../components/Researchers';
+import Students from '../components/Students';
 import SingUp from '../components/SingUp';
 import User from '../components/User';
+import UserInfo from '../components/UserInfo';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 
@@ -20,7 +25,12 @@ const Navigation = () => (
       </Route>
       <PublicRoute exact path="/login" component={Login} />
       <PrivateRoute exact path="/signup" component={SingUp} roles={adminRoles} />
-      <PrivateRoute exact path="/user/:id" component={User} roles={commonRoles} />
+      <PrivateRoute exact path="/usuario/:id" component={User} roles={commonRoles} />
+      <PrivateRoute exact path="/proyectos" component={Projects} roles={adminRoles} />
+      <PrivateRoute exact path="/proyecto/:id" component={ProjectInfo} roles={adminRoles} />
+      <PrivateRoute exact path="/investigadores" component={Researchers} roles={adminRoles} />
+      <PrivateRoute exact path="/estudiantes" component={Students} roles={adminRoles} />
+      <PrivateRoute exact path="/:role/:id" component={UserInfo} roles={adminRoles} />
     </Switch>
   </Router>
 );
