@@ -39,7 +39,7 @@ select{
   font-family: "Roboto Mono", monospace;
   font-size: 16px; 
 }
-input {
+.input-signup {
   margin-top: 10px;
   margin-bottom: 20px;
   padding: 10px;

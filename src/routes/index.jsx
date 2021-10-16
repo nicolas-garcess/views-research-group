@@ -5,6 +5,7 @@ import {
 // import Home from '../components/Home';
 import Login from '../components/Login';
 import Projects from '../components/Projects';
+import ProjectInfo from '../components/ProjectInfo';
 import Researchers from '../components/Researchers';
 import Students from '../components/Students';
 import SingUp from '../components/SingUp';
@@ -22,12 +23,11 @@ const Navigation = () => (
       <Route exact path="/">
         <Redirect to="/login" />
       </Route>
-      <Route exact path="/projects">
-        <Projects />
-      </Route>
       <PublicRoute exact path="/login" component={Login} />
       <PrivateRoute exact path="/signup" component={SingUp} roles={adminRoles} />
       <PrivateRoute exact path="/usuario/:id" component={User} roles={commonRoles} />
+      <PrivateRoute exact path="/proyectos" component={Projects} roles={adminRoles} />
+      <PrivateRoute exact path="/proyecto/:id" component={ProjectInfo} roles={adminRoles} />
       <PrivateRoute exact path="/investigadores" component={Researchers} roles={adminRoles} />
       <PrivateRoute exact path="/estudiantes" component={Students} roles={adminRoles} />
       <PrivateRoute exact path="/:role/:id" component={UserInfo} roles={adminRoles} />

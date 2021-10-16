@@ -36,7 +36,7 @@ const Login = () => {
     await dispatch(login(loginData.email, loginData.password));
 
     const user = getUser();
-    history.push(`/user/${user.id}`);
+    history.push(`/usuario/${user.id}`);
   };
 
   return (
@@ -47,6 +47,7 @@ const Login = () => {
           <div className="form-upper">
             <label htmlFor="email">correo electrónico</label>
             <input
+              className="input-login"
               type="email"
               id="email"
               name="email"
@@ -56,6 +57,7 @@ const Login = () => {
             />
             <label htmlFor="password">contraseña</label>
             <input
+              className="input-login"
               type="password"
               id="password"
               name="password"
