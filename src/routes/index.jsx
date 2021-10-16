@@ -4,6 +4,7 @@ import {
 } from 'react-router-dom';
 // import Home from '../components/Home';
 import Login from '../components/Login';
+import Projects from '../components/Projects';
 import SingUp from '../components/SingUp';
 import User from '../components/User';
 import PrivateRoute from './PrivateRoute';
@@ -17,6 +18,9 @@ const Navigation = () => (
     <Switch>
       <Route exact path="/">
         <Redirect to="/login" />
+      </Route>
+      <Route exact path="/projects">
+        <Projects />
       </Route>
       <PublicRoute exact path="/login" component={Login} />
       <PrivateRoute exact path="/signup" component={SingUp} roles={adminRoles} />
