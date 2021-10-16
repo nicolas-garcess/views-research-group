@@ -48,18 +48,18 @@ const SingUp = () => {
         return (
           <>
             <label htmlFor="workingHours">Horas de dedicación</label>
-            <input type="number" id="workingHours" placeholder="Horas de dedicación del investigador" />
+            <input className="input-signup" type="number" id="workingHours" placeholder="Horas de dedicación del investigador" />
           </>
         );
       case 'student':
         return (
           <>
             <label htmlFor="major">Carrera del estudiante</label>
-            <input type="string" id="major" placeholder="Ingresa la carrera del estudiante" />
+            <input className="input-signup" type="string" id="major" placeholder="Ingresa la carrera del estudiante" />
             <label htmlFor="phoneNumber">Celular</label>
-            <input type="string" id="phoneNumber" placeholder="Celular del estudiante" />
+            <input className="input-signup" type="string" id="phoneNumber" placeholder="Celular del estudiante" />
             <label htmlFor="dateOfAdmission">Fecha de ingreso</label>
-            <input type="date" id="dateOfAdmission" placeholder="Fecha de ingreso del estudiante" />
+            <input className="input-signup" type="date" id="dateOfAdmission" placeholder="Fecha de ingreso del estudiante" />
           </>
         );
       default:

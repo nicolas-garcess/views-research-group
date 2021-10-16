@@ -17,7 +17,7 @@ const PrivateRoute = ({ component: Component, roles, ...rest }) => (
 
       if (roles && roles.indexOf(user.rol) === -1) {
         // User does not have the permission
-        return <Redirect to={`/user/${user.id}`} />;
+        return <Redirect to={`/usuario/${user.id}`} />;
       }
       return <Component {...props} />;
     }}

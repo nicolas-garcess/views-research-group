@@ -29,7 +29,7 @@ label {
   color: #8e8e8e;
   font-size: 12px;
 }
-input {
+.input-login {
   margin-top: 10px;
   margin-bottom: 20px;
   padding: 10px;
