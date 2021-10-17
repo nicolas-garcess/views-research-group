@@ -10,8 +10,9 @@ import { ApolloProvider } from 'react-apollo';
 import Navigation from './routes';
 import reducers from './store';
 import { getUser } from './helpers/user';
+import { URL_PATH } from './api';
 
-const httpLink = new HttpLink({ uri: 'http://localhost:3100/graphql' });
+const httpLink = new HttpLink({ uri: URL_PATH.GRAPHQL_SERVER });
 const authMiddleware = new ApolloLink((operation, forward) => {
   operation.setContext(({ headers = {} }) => ({
     headers: {
