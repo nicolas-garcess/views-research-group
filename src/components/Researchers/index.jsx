@@ -1,6 +1,7 @@
 import React from 'react';
 import { useQuery } from 'react-apollo';
 import { RESEARCHERS } from '../../store/user';
+import LogOut from '../LogOut';
 import UserCard from '../UserCard';
 import './index.css';
 
@@ -11,6 +12,7 @@ const Researchers = () => {
   return (
     <div className="researchers">
       <h1>Investigadores</h1>
+      <LogOut />
       <div className="users-container">
         {
           data.researchers.map((researcher) => (

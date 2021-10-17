@@ -1,9 +1,9 @@
 import React from 'react';
 import './index.css';
 
-const CustomLabel = ({ htmlFor, value }) => (
+const CustomLabel = ({ htmlFor, value, ...rest }) => (
   <>
-    <label htmlFor={htmlFor} className="custom-label">{value}</label>
+    <label className="custom-label" {...rest} htmlFor={htmlFor}>{value}</label>
   </>
 );
 

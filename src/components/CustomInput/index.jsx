@@ -3,7 +3,7 @@ import './index.css';
 
 const CustomInput = (props) => (
   <>
-    <input {...props} className="custom-input" />
+    <input className="custom-input" {...props} />
   </>
 );
 

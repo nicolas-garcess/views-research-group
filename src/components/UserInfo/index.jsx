@@ -2,6 +2,7 @@ import React from 'react';
 import { useQuery } from 'react-apollo';
 import { useParams } from 'react-router-dom';
 import { RESEARCHER, STUDENT } from '../../store/user';
+import LogOut from '../LogOut';
 import './index.css';
 
 const UserInfo = () => {
@@ -20,6 +21,7 @@ const UserInfo = () => {
       case 'investigador':
         return (
           <>
+            <LogOut />
             <p className="user-value">
               Identificador:
               {' '}
@@ -55,6 +57,7 @@ const UserInfo = () => {
       case 'estudiante':
         return (
           <>
+            <LogOut />
             <p className="user-value">
               Identificador:
               {' '}
