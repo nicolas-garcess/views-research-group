@@ -1,12 +1,12 @@
 .register {
   background: #151618;
-  height: 100vh;
-  padding-top: 10%;
+  height: 100%;
+  padding-top: 2%;
 }
 .container {
   background: rgba(255, 255, 255, 0.02);
   width: 80%;
-  height: 100vh;
+  height: 80%;
   margin: auto;
   display: flex;
 }
@@ -18,20 +18,24 @@ img {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 4% 10% 0
+  width: 100%;
 }
 .form-signup__upper {
-  text-align: left;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  padding: 7% 4% 0
 }
-label {
-  color: #8e8e8e;
-  font-size: 12px;
+.label-signup {
+  display: block;
+  color: rgba(225, 176, 43, 1);
+  font-size: 15px;
 }
 select{
   margin-top: 10px;
   margin-bottom: 20px;
   padding: 10px;
-  width: 90%;
+  width: 300px;
   border: none;
   border-bottom: 2px solid #8e8e8e;
   background-color: rgba(255, 255, 255, 0);
@@ -40,28 +44,30 @@ select{
   font-size: 16px; 
 }
 .input-signup {
+  width: 300px;
   margin-top: 10px;
   margin-bottom: 20px;
   padding: 10px;
-  width: 90%;
   border: none;
   border-bottom: 2px solid #8e8e8e;
   background-color: rgba(255, 255, 255, 0);
   color: rgba(225, 176, 43, 1);
   font-family: "Roboto Mono", monospace;
   font-size: 16px;
+  display: inline-block;
 }
 ::placeholder {
-  color: rgba(142, 142, 142, 0.4);
+  color: white;
   font-size: 16px;
 }
-.button {
+.form-signup__down {
   background: rgba(255, 255, 255, 0.02);
-  height: 60px;
+  height: 10%;
+  width: 100%;
   padding: 10px;
   margin-bottom: 0;
 }
-button {
+.signup-button {
   background: rgba(255, 255, 255, 0);
   color: #8e8e8e;
   font-size: 12px;
@@ -69,6 +75,22 @@ button {
   border: none;
   width: 100%;
   height: 100%;
+}
+
+.signup-button:hover {
+  cursor: pointer;
+}
+
+@media screen and (min-width: 1080px) {
+  .form-signup__upper {
+    height: 90%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: space-around;
+    padding: 7% 4% 0
+  }
 }
 
 @media screen and (max-width: 1080px) {

@@ -3,17 +3,17 @@ body {
   font-family: "Roboto Mono", monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  width: 100vw;
-  min-height: 100vh;
 }
 
-html {
-  width: 100vw;
+html, body {
+  margin: 0;
+  padding: 0;
   height: 100%;
 }
+
 #root {
   width: 100vw;
-  height: 100vh;
+  height: auto;
 }
 
 code {
@@ -21,6 +21,6 @@ code {
     monospace;
 }
 
-div {
+* {
   box-sizing: border-box;
 }

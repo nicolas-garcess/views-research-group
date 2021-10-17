@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { getUser } from '../../helpers/user';
 import { login } from '../../store/auth';
+import CustomInput from '../CustomInput';
+import CustomLabel from '../CustomLabel';
 import './index.css';
 
 const initialState = {
@@ -10,7 +12,7 @@ const initialState = {
   password: '',
 };
 
-const Login = () => {
+const LogIn = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const { loginResponse } = useSelector((state) => (state.auth));
@@ -41,35 +43,31 @@ const Login = () => {
 
   return (
     <div className="login">
-      <div className="container">
+      <div className="login-container">
         <img src="/assets/images/coal.png" alt="coal" />
         <form className="form">
           <div className="form-upper">
-            <label htmlFor="email">correo electrónico</label>
-            <input
-              className="input-login"
-              type="email"
-              id="email"
-              name="email"
-              placeholder="Ingresa tu correo electrónico"
-              minLength="6"
-              onBlur={(e) => handleOnblur(e)}
-            />
-            <label htmlFor="password">contraseña</label>
-            <input
-              className="input-login"
-              type="password"
-              id="password"
-              name="password"
-              placeholder="Ingresa tu contraseña"
-              minLength="6"
-              maxLength="20"
-              onBlur={(e) => handleOnblur(e)}
-            />
+            <div>
+              <CustomLabel className="label-login" htmlFor="email" value="CORREO ELECTRÓNICO" />
+              <CustomInput type="email" id="email" name="email" placeholder="Ingresa tu correo electrónico" className="input-login" minLength="6" onBlur={handleOnblur} />
+            </div>
+            <div>
+              <CustomLabel className="label-login" htmlFor="password" value="CONTRASEÑA" />
+              <CustomInput
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Ingresa tu contraseña"
+                className="input-login"
+                onBlur={handleOnblur}
+                minLength="6"
+                maxLength="20"
+              />
+            </div>
           </div>
           {loginResponse?.error ? <p>{loginResponse.message}</p> : null }
-          <div className="button">
-            <button type="button" onClick={handleOnClick}>iniciar sesión</button>
+          <div className="form-down">
+            <button className="login-button" type="button" onClick={handleOnClick}>iniciar sesión</button>
           </div>
         </form>
       </div>
@@ -77,4 +75,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LogIn;

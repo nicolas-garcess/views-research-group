@@ -3,12 +3,12 @@ import {
   BrowserRouter as Router, Redirect, Route, Switch
 } from 'react-router-dom';
 // import Home from '../components/Home';
-import Login from '../components/Login';
+import LogIn from '../components/LogIn';
 import Projects from '../components/Projects';
 import ProjectInfo from '../components/ProjectInfo';
 import Researchers from '../components/Researchers';
 import Students from '../components/Students';
-import SingUp from '../components/SingUp';
+import SignUp from '../components/SignUp';
 import User from '../components/User';
 import UserInfo from '../components/UserInfo';
 import PrivateRoute from './PrivateRoute';
@@ -23,8 +23,8 @@ const Navigation = () => (
       <Route exact path="/">
         <Redirect to="/login" />
       </Route>
-      <PublicRoute exact path="/login" component={Login} />
-      <PrivateRoute exact path="/signup" component={SingUp} roles={adminRoles} />
+      <PublicRoute exact path="/login" component={LogIn} />
+      <PrivateRoute exact path="/signup" component={SignUp} roles={adminRoles} />
       <PrivateRoute exact path="/usuario/:id" component={User} roles={commonRoles} />
       <PrivateRoute exact path="/proyectos" component={Projects} roles={adminRoles} />
       <PrivateRoute exact path="/proyecto/:id" component={ProjectInfo} roles={adminRoles} />
