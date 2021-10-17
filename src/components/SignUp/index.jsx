@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useMutation } from 'react-apollo';
-import { gql } from 'apollo-boost';
 import CustomInput from '../CustomInput';
 import CustomLabel from '../CustomLabel';
+import { CREATE_RESEARCHER, CREATE_STUDENT } from '../../store/user';
 import './index.css';
 
 const initialStateResearcher = {
@@ -28,66 +28,6 @@ const initialStateStudent = {
   fechaIngreso: '',
   activo: true,
 };
-
-const CREATE_RESEARCHER = gql`
-  mutation createResearcher(
-    $id: String!,
-    $nombre: String!,
-    $idProyecto: String!,
-    $email: String!,
-    $usuario: String!,
-    $contrasena: String!,
-    $horasDedicacion: Int!,
-    $activo: Boolean!) {
-    createResearcher(input: {
-      id: $id
-      nombre: $nombre
-      idProyecto: $idProyecto
-      email: $email
-      usuario: $usuario
-      contrasena: $contrasena
-      horasDedicacion: $horasDedicacion
-      activo: $activo
-    }) {
-      id
-      nombre
-      idProyecto
-      email
-    }
-  }
-`;
-
-const CREATE_STUDENT = gql`
-  mutation createStudent(
-    $id: String!,
-    $nombre: String!,
-    $idProyecto: String!,
-    $email: String!,
-    $usuario: String!,
-    $contrasena: String!,
-    $carrera: String!,
-    $celular: String!,
-    $fechaIngreso: DateTime!,
-    $activo: Boolean!) {
-    createStudent(input: {
-      id: $id
-      nombre: $nombre
-      idProyecto: $idProyecto
-      email: $email
-      usuario: $usuario
-      contrasena: $contrasena
-      carrera: $carrera
-      celular: $celular
-      fechaIngreso: $fechaIngreso
-      activo: $activo
-    }) {
-      id
-      nombre
-      idProyecto
-      email
-    }
-  }
-`;
 
 const SignUp = () => {
   const [role, setRole] = useState('researcher');
@@ -116,12 +56,9 @@ const SignUp = () => {
         [tag.name]: tag.value,
       });
     }
-
-    console.log(userInfo);
   };
 
   const handleOnClick = () => {
-    console.log(userInfo);
     createStudent({ variables: { ...userInfo } });
   };
 

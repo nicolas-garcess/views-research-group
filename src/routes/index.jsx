@@ -4,6 +4,7 @@ import {
 } from 'react-router-dom';
 // import Home from '../components/Home';
 import LogIn from '../components/LogIn';
+import CreateProject from '../components/CreateProject';
 import Projects from '../components/Projects';
 import ProjectInfo from '../components/ProjectInfo';
 import Researchers from '../components/Researchers';
@@ -28,6 +29,7 @@ const Navigation = () => (
       <PrivateRoute exact path="/usuario/:id" component={User} roles={commonRoles} />
       <PrivateRoute exact path="/proyectos" component={Projects} roles={adminRoles} />
       <PrivateRoute exact path="/proyecto/:id" component={ProjectInfo} roles={adminRoles} />
+      <PrivateRoute exact path="/crear-proyecto" component={CreateProject} roles={adminRoles} />
       <PrivateRoute exact path="/investigadores" component={Researchers} roles={adminRoles} />
       <PrivateRoute exact path="/estudiantes" component={Students} roles={adminRoles} />
       <PrivateRoute exact path="/:role/:id" component={UserInfo} roles={adminRoles} />
