@@ -67,7 +67,7 @@ const LogIn = () => {
           </div>
           {loginResponse?.error ? <p>{loginResponse.message}</p> : null }
           <div className="form-down">
-            <button className="login-button" type="button" onClick={handleOnClick}>iniciar sesión</button>
+            <button className="login-button" type="button" onClick={handleOnClick}>Iniciar sesión</button>
           </div>
         </form>
       </div>
