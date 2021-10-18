@@ -1,5 +1,40 @@
 import { gql } from 'apollo-boost';
 
+export const CREATE_PROJECT = gql`
+  mutation createProject(
+    $idProyecto: String!,
+    $nombre: String!,
+    $descripcion: String!,
+    $objetivos: ObjectivesInput!,
+    $presupuesto: Float!,
+    $fechaInicial: DateTime!,
+    $fechaFinal: DateTime!,
+    $directorProyecto: String!,
+    $estaDisponible: Boolean!
+    $estudiantes: [ProjectStudentInput]!,
+    $investigadores: [ProjectResearcherInput]!,
+    $notas: [NoteInput]!
+    ) {
+    createProject(input: {
+      idProyecto: $idProyecto 
+      nombre: $nombre
+      descripcion: $descripcion
+      objetivos: $objetivos
+      presupuesto: $presupuesto
+      fechaInicial: $fechaInicial
+      fechaFinal: $fechaFinal
+      directorProyecto: $directorProyecto
+      estaDisponible: $estaDisponible
+      estudiantes: $estudiantes
+      investigadores: $investigadores
+      notas: $notas
+    }) {
+      nombre
+      idProyecto
+    }
+  }
+`;
+
 export const PROJECTS = gql`
   query getProjects {
     projects {

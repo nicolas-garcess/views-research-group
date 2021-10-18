@@ -5,13 +5,8 @@ import { PROJECT } from '../../store/project';
 import CustomInput from '../CustomInput';
 import CustomLabel from '../CustomLabel';
 import LogOut from '../LogOut';
+import { parseDate } from '../../helpers/utils';
 import './index.css';
-
-const parseDate = (date) => {
-  const newDate = new Date(date);
-  const parsedDate = newDate.toISOString().split('T')[0];
-  return parsedDate;
-};
 
 const ProjectInfo = () => {
   const slug = useParams();

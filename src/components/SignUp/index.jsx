@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useMutation } from 'react-apollo';
 import CustomInput from '../CustomInput';
 import CustomLabel from '../CustomLabel';
+import { CREATE_RESEARCHER, CREATE_STUDENT } from '../../store/user';
 import './index.css';
 
 const initialStateResearcher = {
@@ -23,14 +25,42 @@ const initialStateStudent = {
   contrasena: '',
   carrera: '',
   celular: '',
-  fechaIngreso: new Date(),
+  fechaIngreso: '',
   activo: true,
 };
 
 const SignUp = () => {
   const [role, setRole] = useState('researcher');
   const [userInfo, setUserInfo] = useState(initialStateResearcher);
-  console.log(userInfo);
+  const mutation = role === 'researcher' ? CREATE_RESEARCHER : CREATE_STUDENT;
+  const [createStudent, { data, loading, error }] = useMutation(mutation);
+  console.log(data);
+
+  const handleOnblur = (e) => {
+    const tag = e.target;
+
+    if (tag.name === 'horasDedicacion') {
+      setUserInfo({
+        ...userInfo,
+        [tag.name]: Number(tag.value),
+      });
+    } else if (tag.name === 'fechaIngreso') {
+      const date = new Date(tag.value);
+      setUserInfo({
+        ...userInfo,
+        [tag.name]: date.toISOString(),
+      });
+    } else {
+      setUserInfo({
+        ...userInfo,
+        [tag.name]: tag.value,
+      });
+    }
+  };
+
+  const handleOnClick = () => {
+    createStudent({ variables: { ...userInfo } });
+  };
 
   const selectFieldsPerUser = () => {
     switch (role) {
@@ -39,7 +69,7 @@ const SignUp = () => {
           <>
             <div>
               <CustomLabel className="label-signup" htmlFor="workingHours" value="HORAS DE DEDICACIÓN" />
-              <CustomInput type="number" id="workingHours" placeholder="Horas de dedicación del investigador" className="input-signup" />
+              <CustomInput type="number" id="workingHours" name="horasDedicacion" placeholder="Horas de dedicación del investigador" min="8" max="40" className="input-signup" onBlur={handleOnblur} />
             </div>
           </>
         );
@@ -48,15 +78,15 @@ const SignUp = () => {
           <>
             <div>
               <CustomLabel className="label-signup" htmlFor="major" value="CARRERA" />
-              <CustomInput type="text" id="major" placeholder="Ingresa la carrera del estudiante" className="input-signup" />
+              <CustomInput type="text" id="major" name="carrera" placeholder="Ingresa la carrera del estudiante" className="input-signup" onBlur={handleOnblur} />
             </div>
             <div>
               <CustomLabel className="label-signup" htmlFor="phoneNumber" value="CELULAR" />
-              <CustomInput type="text" id="phoneNumber" placeholder="Ingresa el celular del estudiante" className="input-signup" />
+              <CustomInput type="text" id="phoneNumber" name="celular" placeholder="Ingresa el celular del estudiante" className="input-signup" onBlur={handleOnblur} />
             </div>
             <div>
               <CustomLabel className="label-signup" htmlFor="dateOfAdmission" value="FECHA DE INGRESO" />
-              <CustomInput type="text" id="dateOfAdmission" placeholder="Fecha de ingreso del estudiante" className="input-signup" />
+              <CustomInput type="date" id="dateOfAdmission" name="fechaIngreso" placeholder="Fecha de ingreso del estudiante" className="input-signup" onBlur={handleOnblur} />
             </div>
           </>
         );
@@ -77,6 +107,9 @@ const SignUp = () => {
     }
   };
 
+  if (loading) return 'Submitting...';
+  if (error) return `${JSON.stringify(error)}`;
+
   return (
     <div className="register">
       <div className="container">
@@ -90,32 +123,32 @@ const SignUp = () => {
             </select>
             <div>
               <CustomLabel className="label-signup" htmlFor="userId" value="Id del usuario" />
-              <CustomInput type="text" id="userId" placeholder="Ingresa un id para el usuario" className="input-signup" />
+              <CustomInput type="text" id="userId" name="id" placeholder="Ingresa un id para el usuario" className="input-signup" onBlur={handleOnblur} />
             </div>
             <div>
               <CustomLabel className="label-signup" htmlFor="defproyecto" value="ID PROYECTO" />
-              <CustomInput type="text" id="defproyecto" placeholder="Ingresa el id del proyecto al que pertenecerá" className="input-signup" />
+              <CustomInput type="text" id="defproyecto" name="idProyecto" placeholder="Ingresa el id del proyecto al que pertenecerá" className="input-signup" onBlur={handleOnblur} />
             </div>
             <div>
               <CustomLabel className="label-signup" htmlFor="userName" value="NOMBRES Y APELLIDOS" />
-              <CustomInput type="text" id="userName" placeholder="Ingresa su nombre completo" className="input-signup" />
+              <CustomInput type="text" id="userName" name="nombre" placeholder="Ingresa su nombre completo" className="input-signup" onBlur={handleOnblur} />
             </div>
             <div>
               <CustomLabel className="label-signup" htmlFor="user" value="NOMBRE DE USUARIO" />
-              <CustomInput type="text" id="user" placeholder="Ingresa un nombre de usuario" className="input-signup" />
+              <CustomInput type="text" id="user" name="usuario" placeholder="Ingresa un nombre de usuario" className="input-signup" onBlur={handleOnblur} />
             </div>
             <div>
               <CustomLabel className="label-signup" htmlFor="email" value="CORREO ELECTRÓNICO" />
-              <CustomInput type="email" id="email" placeholder="Ingresa su correo electrónico" className="input-signup" />
+              <CustomInput type="email" id="email" name="email" placeholder="Ingresa su correo electrónico" className="input-signup" onBlur={handleOnblur} />
             </div>
             <div>
               <CustomLabel className="label-signup" htmlFor="password" value="CONTRASEÑA" />
-              <CustomInput type="password" id="password" placeholder="Ingresa una contraseña" className="input-signup" />
+              <CustomInput type="password" id="password" name="contrasena" placeholder="Ingresa una contraseña" className="input-signup" onBlur={handleOnblur} />
             </div>
             {role && selectFieldsPerUser()}
           </div>
           <div className="form-signup__down">
-            <button type="button" className="signup-button">REGISTRAR</button>
+            <button type="button" className="signup-button" onClick={() => handleOnClick()}>REGISTRAR</button>
           </div>
         </form>
       </div>
