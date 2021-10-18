@@ -12,7 +12,7 @@ const LogOut = () => {
   };
 
   return (
-    <div className="logut-container">
+    <div className="logout-container">
       <button className="logout" type="button" onClick={handleOnClick}>Cerrar sesión</button>
     </div>
   );

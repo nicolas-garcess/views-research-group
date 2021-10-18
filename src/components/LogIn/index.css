@@ -35,7 +35,7 @@ img {
   align-items: center;
 }
 .label-login {
-  color: #8e8e8e;
+  color: rgba(225, 176, 43, 1);
   font-size: 18px;
 }
 .input-login {
@@ -78,7 +78,7 @@ img {
 
 @media screen and (min-width: 1080px) {
   .login-container {
-    width: 800px;
+    width: 900px;
     height: 60%;
     display: flex;
   }
